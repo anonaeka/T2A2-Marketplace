@@ -11,9 +11,12 @@
   </head>
 
   <body>
-    <%= link_to "Home", root_path %>
-    <%= link_to "Product", products_path %>
+
+    <%= render 'layouts/header' %>
+  <div class="container">
     <%= yield %>
-    <p>Copyright by Anon 2021</p>
+
+    <%= render 'layouts/footer' %>
+  </div>
   </body>
 </html>

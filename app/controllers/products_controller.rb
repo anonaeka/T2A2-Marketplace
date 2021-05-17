@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ show edit update destroy search ]
 
   # GET /products or /products.json
   def index
@@ -8,6 +8,14 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+  end
+
+  def search
+    if params[:search].blank?  
+      redirect_to(products_path, alert: "Empty field!") and return  
+    else
+
+    end  
   end
 
   # GET /products/new

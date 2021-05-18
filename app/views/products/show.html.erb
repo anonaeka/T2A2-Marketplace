@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <p>
+  <strong>Image:</strong>
+  </p>
+  <%= image_tag @product.image, :size => "260", :crop => :fill %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>

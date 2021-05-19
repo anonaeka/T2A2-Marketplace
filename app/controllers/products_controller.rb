@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def search
+    @products = Product.search(params[:search])
   end
 
   # GET /products/new

@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
-<%= render 'header' %>
 <h1>Products</h1>
 
+<%= render 'header' %>
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Description</th>
       <th>Price</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td><img src=<%= product.image.url(:width=>300, :crop=>"fill") %>></td>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>

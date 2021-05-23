@@ -16,6 +16,9 @@
     <ul class="navbar-nav mr-auto navbar-right">
         <% if user_signed_in? %>
         <li class="navbar-brand mb-0 h1">
+        <%= link_to "Manage Product", seller_path, class: "nav-link" %>
+        </li>
+        <li class="navbar-brand mb-0 h1">
         <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
         </li>
         <li class="navbar-brand mb-0 h1">

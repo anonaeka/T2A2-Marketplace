@@ -1,9 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy search ]
-
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
+  
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @products = Product.all.order("created_at DESC")
   end
 
   # GET /products/1 or /products/1.json
@@ -11,6 +13,10 @@ class ProductsController < ApplicationController
   end
 
   def search
+  end
+
+  def seller
+    @products = Product.where(user: current_user).order("created_at DESC")
   end
 
   # GET /products/new
@@ -61,13 +67,19 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def product_params
-      params.require(:product).permit(:name, :description, :price, :image)
-    end
+  def set_product
+  @product = Product.find(params[:id])
+  end
+
+  def product_params
+  params.require(:product).permit(:name, :description, :price, :image)
+  end
+
+  def check_user
+  if current_user == "product.user"
+      redirect_to root_url, alert: "Sorry, this product belongs to someone else"
+  end
+  end
+
 end

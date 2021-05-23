@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
     <ul class="navbar-nav mr-auto">
-    <a class="navbar-brand">
+    <a class="navbar-brand-auto">
     <%= link_to root_path do %>
     <img src="https://res.cloudinary.com/ddqegwuzs/image/upload/v1621580383/Vspace_gfo16b.png" alt="" width="40" height="40">
     <% end %>
@@ -11,7 +11,21 @@
         </li>
         <li class="navbar-brand mb-0 h1">
         <%= link_to "Product", products_path, class: "nav-link" %>
-    </li>
+        </li>
+    </ul>
+    <ul class="navbar-nav mr-auto navbar-right">
+        <li class="navbar-brand mb-0 h1">
+        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+        </li>
+        <li class="navbar-brand mb-0 h1">
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+        <li class="navbar-brand mb-0 h1">
+        <%= link_to "Sign In", user_session_path, class: "nav-link" %>
+        </li>
+        <li class="navbar-brand mb-0 h1">
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
+        </li>
     </ul>
     </div>
 </nav>

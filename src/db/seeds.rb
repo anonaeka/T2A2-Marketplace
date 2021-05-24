@@ -14,7 +14,7 @@
 #     password_confirmation: '1546621',
 # ])
 
-User.last.products.create([
+User.second.products.create([
     name: 'Seed2 Created',
     description: 'Song Me Ray',
     price: '50',

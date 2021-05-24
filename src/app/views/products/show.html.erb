@@ -3,9 +3,9 @@
   <div class="col-md-6">
     <div class="card-body">
           <% if @product.image.attached? %>
-          <%= image_tag @product.image, crop: :fill, width: 550 %>
+          <%= image_tag @product.image, crop: :scale, width: "100%" %>
           <% else %>
-          <img src="https://res.cloudinary.com/ddqegwuzs/image/upload/v1621830575/Noimage_zgaeta.png" alt="" width="550">
+          <img src="https://res.cloudinary.com/ddqegwuzs/image/upload/v1621830575/Noimage_zgaeta.png" alt="" width="100%">
           <% end %>
     </div>
   </div>

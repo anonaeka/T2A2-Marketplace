@@ -1,1 +1,4 @@
 <h1>Search Results</h1>
+    <% @results.each do |result| %>  
+        <%= link_to result.name, show_product_path(result) %><br>  
+    <% end %>

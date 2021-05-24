@@ -12,7 +12,13 @@ class ProductsController < ApplicationController
   def show
   end
 
-  def search
+  def search  
+    if params[:search].blank?  
+      redirect_to(products_path, alert: "Empty field!") and return  
+    else  
+      @parameter = params[:search].downcase  
+      @results = Product.all.where("lower(name) LIKE :search", search: "%#{@parameter}%" )
+    end
   end
 
   def seller
@@ -61,7 +67,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
+      format.html { redirect_to products_url, notice: "Product was successfully deleted." }
       format.json { head :no_content }
     end
   end
@@ -73,7 +79,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-  params.require(:product).permit(:name, :description, :price, :image)
+  params.require(:product).permit(:name, :description, :price, :image, :search)
   end
 
   def check_user

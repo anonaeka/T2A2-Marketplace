@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-fluid">
 <div class="row">
   <div class="col-md-6">
-    <div class="thumbnail">
+    <div class="card-body">
           <% if @product.image.attached? %>
-          <%= image_tag @product.image, crop: :scale, width: 600 %>
+          <%= image_tag @product.image, crop: :fill, width: 550 %>
           <% else %>
           No Image
           <% end %>

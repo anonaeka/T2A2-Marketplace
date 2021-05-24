@@ -7,11 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Product.create(
-    {
-        name: "Products Test",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        price: "50",
-        
-    }
-)
+# User.create([
+#     name: 'Seed Man',
+#     email: 'seed@seed.com',
+#     password: '1546621',
+#     password_confirmation: '1546621',
+# ])
+
+User.last.products.create([
+    name: 'Seed2 Created',
+    description: 'Song Me Ray',
+    price: '50',
+])

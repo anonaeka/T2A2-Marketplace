@@ -5,18 +5,20 @@
           <% if @product.image.attached? %>
           <%= image_tag @product.image, crop: :fill, width: 550 %>
           <% else %>
-          No Image
+          <img src="https://res.cloudinary.com/ddqegwuzs/image/upload/v1621830575/Noimage_zgaeta.png" alt="" width="550">
           <% end %>
     </div>
   </div>
   <div class="col-md-6">
+    <div class="card-body">
     <h3><%= @product.name %></h3>
     <p><%= number_to_currency (@product.price) %></p>
     <p><%= @product.description %></p>
+    </div>
   </div>
 </div>
 <br>
 <% if current_user == @product.user %>
-  <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %>
+  <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-secondary" %>
 <% end %>
-  <%= link_to 'Back', products_path, class: "btn btn-info" %>
+  <%= link_to 'Back', products_path, class: "btn btn-warning" %>

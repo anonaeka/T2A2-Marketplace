@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+
 body {
     background-color: white;
     color: #333333;
@@ -25,4 +26,9 @@ body {
     p {
     font-size: 18px;
     }
+}
+
+
+.table td, .table th {
+    min-width: 100px;
 }

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'seller' => "products#seller"
   get 'search' => "products#search", :as => 'search_page'
   get 'products/:id', to: 'products#show', as: 'show_product'
+  get 'sales' => "orders#sales"
+  get 'purchases' => "orders#purchases"
 
   root to: 'v_space#index'
 end

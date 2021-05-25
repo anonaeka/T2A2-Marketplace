@@ -1,0 +1,31 @@
+<div class="center">
+    <h2>Sales History</h2>
+</div>
+
+    <table class="table table-striped table-bordered">
+    <tr>
+        <th class="center">Image</th>
+        <th class="center">Product</th>
+        <th class="center">Price</th>
+        <th class="center">Customer</th>
+        <th class="center">Date Sold</th>
+    </tr>
+
+    <% @orders.each do |order| %>
+        <tr>
+        <td class="center">
+        <% if order.product.image.url %>
+            <img src= <%= order.product.image.url %> width="20%">
+            <% else %>
+            <img src="https://res.cloudinary.com/ddqegwuzs/image/upload/v1621830575/Noimage_zgaeta.png" alt="" width="20%">
+        <% end %>
+        </td>
+        <td class="center"><%= order.product.name %></td>
+        <td class="center"><%= number_to_currency(order.product.price) %></td>
+        <td class="center"><%= order.buyer.name %></td>
+        <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+        </tr>
+    <% end %>
+    </table>
+
+<br>

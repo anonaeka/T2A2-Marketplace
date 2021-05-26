@@ -1,3 +1,17 @@
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <% if @product.image.attached? %>
+      <%= image_tag @product.image, crop: :scale, width: "80%" %>
+      <% else %>
+      <img src="https://res.cloudinary.com/ddqegwuzs/image/upload/v1621830575/Noimage_zgaeta.png" alt="" width="80%">
+      <% end %>
+    </div>
+    <p><h3><%= @product.name %></h3></p>
+    <h5><%= number_to_currency(@product.price) %></h5>
+  </div>
+  <div class="col-md-8">
 <%= form_for([@product, @order]) do |f| %>
   <% if order.errors.any? %>
       <div class="alert alert-danger alert-dismissable">
@@ -24,8 +38,34 @@
     <%= f.label :state %>
     <%= f.text_field :state, class: "form-control" %>
   </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-8">
+        <%= label_tag :card_number, "Credit Card Number" %>
+        <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control" } %>
+      </div>
+      <div class="col-md-4">
+        <%= label_tag :card_code, "CVC" %>
+        <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control" } %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label_tag nil, "Expiration Date" %>
+    <div class="row">
+      <div class="col-md-3">
+        <p><%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control" } %></p>
+      </div>
+      <div class="col-md-3">
+        <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control" } %>
+      </div>
+    </div>
+  </div>
   <br>
   <div class="form-group">
-    <%= f.submit "Order", class: "btn btn-primary" %>
+    <p><%= f.submit "Order", class: "btn btn-primary" %></p>
   </div>
 <% end %>
+</div>
+</div>

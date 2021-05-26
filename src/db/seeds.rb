@@ -15,7 +15,7 @@
 # ])
 
 User.second.products.create([
-    name: 'Seed2 Created',
+    name: 'Test NEW BE',
     description: 'Song Me Ray',
     price: '50',
 ])

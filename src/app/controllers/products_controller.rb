@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   
   # GET /products or /products.json
   def index
-    @products = Product.all.order("created_at DESC")
+    @products = Product.page(params[:page]).order("created_at DESC")
   end
 
   # GET /products/1 or /products/1.json
@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def seller
-    @products = Product.where(user: current_user).order("created_at DESC")
+      @products = Product.where(user: current_user).order("created_at DESC")
   end
 
   # GET /products/new

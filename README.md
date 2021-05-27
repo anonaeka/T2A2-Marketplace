@@ -127,14 +127,76 @@ This section is the section that will cover almost everything about how to use t
 Inside my app, I don't use third-party services, as I initially tried to find a space to stuff it in, but it made my apps look cluttered. So I think it's not necessary for my application. But the one I opted for was Heroku to use it for deploy of my application to run in a web browser.
 
 ## ERD
-
-![ERD](https://res.cloudinary.com/ddqegwuzs/image/upload/v1622109899/LogoVspace/ERM_iuwebq.png)
+### Database schema design
+![ERD](https://res.cloudinary.com/ddqegwuzs/image/upload/v1622111944/LogoVspace/erdfix2_p8cyzv.png)
 
 ## Describe Projects Models
+### Product
+- has_one_attached :image
+- belongs_to :user
+- has_many :orders
+
+Explain the product section by visiting has_one_attached for an image, that is, only one image must be attached at a time. Next is the relationship between the product and the user belongs_to: user, which can be bi-directional, either many-to-one or one-to-one, in this section navigating the relationship. That user can relate to a variety of products. And then the has_many: orders part is where we have a product that can be placed multiple times or sold multiple times.
+
+### User
+- has_many :products, dependent: :destroy
+- has_many :sales, class_name: "Order", foreign_key: "seller_id"
+- has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
+
+As for the user, they are all has_many, with one user able to manage multiple product relationships and also save data to the record category Order. It shows that the relationship between products, sales and purchases in one user can be passed on to multiple products.
+
+### Order
+- belongs_to :product
+- belongs_to :buyer, class_name: "User"
+- belongs_to :seller, class_name: "User"
+
+Is setting to Order Our model has Who uses id / foreign_key? It will be recorded and returned to the same place using belongsTo, always keeping the other ids id.
 
 ## Discuss the database relations
 
-## Database schema design
-
+The database matters in the relationship between tables, in which the app is divided into three main tables, namely Products, Users and Order, if based on the basis, the information will be sent, i.e. foreign key and primary keys to save in the database and display when all processes are correct. In this application's database, the controller is Users, which determines the values ​​that are sent between Products and Orders.
 
 ## Tracked in the project
+
+Trello : 
+[V-Space - Trello](https://trello.com/b/l7hGwqCk/vspace)
+
+### Timeline
+
+    - 13 - 15 May 2021
+    - Research
+
+    - 17 May 2021
+    - V-Space Concept
+
+    - 18 May 2021
+    - Prepare to build the application
+    - Create a V-Space with Rails
+
+    - 19 May 2021
+    - First page
+    - Coding Products Part
+
+    - 20 May 2021
+    - User from Devise gem
+    - Validate User
+    - Set User Permissions
+
+    - 21 - 23 May 2021
+    - Bootstrap
+    - Do more code !!!
+
+    - 24 May 2021
+    - Can't use search bar
+    - Fix search bar
+
+    - 25 - 26 May 2021
+    - Sale and Purchase Page
+    - Dropdown menu
+    - Fix All Page
+
+    - 27 May 2021
+    - Can't deploy on Heroku
+    - Can remote to Heroku
+    - Finish Readme.
+    - Go to upload !!

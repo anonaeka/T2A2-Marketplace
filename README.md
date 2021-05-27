@@ -128,7 +128,7 @@ Inside my app, I don't use third-party services, as I initially tried to find a 
 
 ## ERD
 
-![ERD](https://res.cloudinary.com/ddqegwuzs/image/upload/v1622100510/LogoVspace/erd_zqwput.jpg)
+![ERD](https://res.cloudinary.com/ddqegwuzs/image/upload/v1622109899/LogoVspace/ERM_iuwebq.png)
 
 ## Describe Projects Models
 

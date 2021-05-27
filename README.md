@@ -89,16 +89,52 @@ Initially, V-Space had a plan to use a rolify gem, but due to user needs, there 
 
 ## User stories
 
-## ERD
+
+    - There are many products that make you feel dizzy.
+    - Enter items of interest into the search system, easy to find what you are looking for.
+
+    - Want to know more about this product?
+    - Press the detail button to read more information.
+
+    - I forgot which products are mine.
+    - Using Manage Product, find the product that you have posted.
+
+    - My product image is not clear.
+    - Press edit to upload the new image again in Manage Product.
+
+    - I forgot which products I have bought
+    - Purchase History keeps product information, time and the seller name.
+
+    - Who bought any of my creations?
+    - It's easy, just press into Sales History to view information
+
+    - I feel my password is not secure anymore.
+    - Change information in Edit Profile at any time
+
+    - I don't want to sell this work anymore.
+    - Press the destroy button in Manage Product to delete the product you do not want to sell.
+
+    - Interested in this work, want to keep it.
+    - Click on the Buy this product button and place an order.
 
 ## Abstractions
+### User : 
+The most important component and primary key of the app is inevitable that the user system has full and free access to the website. This is because all users will have the ability to access the contents of the website equally. It eliminates the hassle of signing up as either a buyer or a seller, can be used simultaneously with one user.
+### Manage : 
+This section is the section that will cover almost everything about how to use this website app because it is the whole point of accessing the product, whether it is editing or adding products. Including checking that our products were sold, what date, time, and which users bought Moreover, the record of what we have purchased is covered as well. Giving the user the convenience of using this app easily.
 
 ## Third party services
+Inside my app, I don't use third-party services, as I initially tried to find a space to stuff it in, but it made my apps look cluttered. So I think it's not necessary for my application. But the one I opted for was Heroku to use it for deploy of my application to run in a web browser.
+
+## ERD
+
+![ERD](https://res.cloudinary.com/ddqegwuzs/image/upload/v1622100510/LogoVspace/erd_zqwput.jpg)
 
 ## Describe Projects Models
 
 ## Discuss the database relations
 
 ## Database schema design
+
 
 ## Tracked in the project

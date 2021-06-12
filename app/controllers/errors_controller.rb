@@ -1,4 +1,5 @@
 class ErrorsController < ApplicationController
+  # Error Page
   def not_found
     render status: 404
   end

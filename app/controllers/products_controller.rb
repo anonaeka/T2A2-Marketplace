@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   def show
   end
 
+  # GET /serach
   def search  
     if params[:search].blank?  
       redirect_to(products_path, alert: "Empty field!") and return  

@@ -26,6 +26,8 @@
     </div>
   <% end %>
 
+<h5>Address Information</h5>
+
   <div class="form-group">
     <%= f.label :address %>
     <%= f.text_field :address, class: "form-control" %>
@@ -38,30 +40,47 @@
     <%= f.label :state %>
     <%= f.text_field :state, class: "form-control" %>
   </div>
-
+<br>
+  <h5>Payment Information</h5>
   <div class="form-group">
     <div class="row">
-      <div class="col-md-8">
-        <%= label_tag :card_number, "Credit Card Number" %>
-        <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control" } %>
+    <label for="validationDefault03" class="form-label">Card Holder's Name</label>
+      <div class="col-md-10">  
+        <input type="text" class="form-control" pattern="\w+ \w+.*" required required>
       </div>
-      <div class="col-md-4">
-        <%= label_tag :card_code, "CVC" %>
-        <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control" } %>
       </div>
-    </div>
+      <label for="validationDefault03" class="form-label">Credit Card Number</label>
+        <div class="input-group md-3">
+          <div class="input-group-number">
+            <input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" required>
+          &nbsp
+            <input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" required>
+          &nbsp
+            <input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" required>
+          &nbsp
+            <input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" required>
+        </div>
+      </div>
+      <label for="validationDefault03" class="form-label">CVV</label>
+        <div class="input-group md-3">
+          <div class="input-group-number">
+            <input type="text" class="input-block-level" autocomplete="off" maxlength="3" pattern="\d{3}" required>
+        </div>
+      </div>
   </div>
+
+
   <div class="form-group">
     <%= label_tag nil, "Expiration Date" %>
     <div class="row">
       <div class="col-md-3">
-        <p><%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control" } %></p>
+        <p><%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'nil' => "exp-month", class: "form-control" } %></p>
       </div>
       <div class="col-md-3">
-        <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control" } %>
+        <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+20 }, { :name => nil, :'nil' => "exp-year", class: "form-control" } %>
       </div>
     </div>
-  </div>
+
   <br>
   <div class="form-group">
     <p><%= f.submit "Order", class: "btn btn-primary" %></p>

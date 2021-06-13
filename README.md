@@ -89,42 +89,66 @@ Initially, V-Space had a plan to use a rolify gem, but due to user needs, there 
 
 ## User stories
 
+### Guest :
 
-    - There are many products that make you feel dizzy.
-    - Enter items of interest into the search system, easy to find what you are looking for.
+    - As a guest, I'd like to see what's on sale on the website.
+    - As a guest, I would like to see what product details are available.
+    - As a guest, I want to buy or sell items, I need to register on the Sign-up button.
+    - As a guest I can search for products in the search bar.
 
-    - Want to know more about this product?
-    - Press the detail button to read more information.
+### User :
 
-    - I forgot which products are mine.
-    - Using Manage Product, find the product that you have posted.
+    - As a user I can search for products in the search bar.
+    - As a user, I want to sign in to use the website as a user.
+    - As a user, I want to log out after finishing the website.
+    - As a user, I want to edit the name, email, password at Edit Profile.
+    - As a user, I want to delete my account if I no longer want to use this site.
+    - As a user, I want to sell a product, I have to create it in New Product.
+    - As a user, I would like to upload a product image so that the product can be displayed on the Product page.
+    - As a user, I would like to edit or delete the product on the Manage Product page.
+    - As a user, I would like to check the list of items I bought at Purchase History.
+    - As a user, I would like to check the list of products I sell at Sales History.
 
-    - My product image is not clear.
-    - Press edit to upload the new image again in Manage Product.
-
-    - I forgot which products I have bought
-    - Purchase History keeps product information, time and the seller name.
-
-    - Who bought any of my creations?
-    - It's easy, just press into Sales History to view information
-
-    - I feel my password is not secure anymore.
-    - Change information in Edit Profile at any time
-
-    - I don't want to sell this work anymore.
-    - Press the destroy button in Manage Product to delete the product you do not want to sell.
-
-    - Interested in this work, want to keep it.
-    - Click on the Buy this product button and place an order.
 
 ## Abstractions
-### User : 
-The most important component and primary key of the app is inevitable that the user system has full and free access to the website. This is because all users will have the ability to access the contents of the website equally. It eliminates the hassle of signing up as either a buyer or a seller, can be used simultaneously with one user.
-### Manage : 
-This section is the section that will cover almost everything about how to use this website app because it is the whole point of accessing the product, whether it is editing or adding products. Including checking that our products were sold, what date, time, and which users bought Moreover, the record of what we have purchased is covered as well. Giving the user the convenience of using this app easily.
+
+## Model
+
+### Order : The model order is an interface that allows users to order products that come from the product and is also part of the extraction of data to be recorded in the purchase and sale history.
+
+### Product : The model product is like the centre of the application when the product is created by the user and the image data is received from the website. active_storage When the user uploaded an image.
+
+### User : The user model, which is the user's side, which is related to the user creating a product or editing or delete a product and send values to confirm that the product belongs to which user and who bought it from. The sale of this product is based on a separate ID for each user.
+
+## Controllers
+
+### Application_controller : It controls the core of the application displayed on every page of the application. It is linked to the device gem. When a visitor wants to signup or a user has already logged in to display on the application on every page of the application.
+
+### Errors_controller : 404 Not Found or Error 404 is a page that notifies you that no information was found on the server of this website or that the URL of this website page was not found. Another way is to prevent the application from dripping when a URL crash occurs.
+
+### Orders_controller : The application controls when an order is placed by the user and determines the display when the purchase and sale are recorded in the history such as who was sold to whom and from whom, what date and how much. This controller works between the products_controller.
+
+### Products_controller : Control display of products to different categories of applications, this controller is the key of this application because all the information that must go through this controller is busy. Create a list of products, search for products, edit or delete products. It also shows the product that was created by who and when.
+
+### V_space_controller : The application's home page controls, which act as a gateway when users enter a website.
+
+## Views
+
+### Devise : Membership display page which is part of Devise gem for visitors to come in to register as users of the website
+### Error : The page is displayed when there is a URL error or some abnormality in the use of the website.
+### Kaminari : A Kaminari gem that helps websites to paginate when there are more than a certain number of products rendered.
+### Layouts : The layout of the main website, which will be displayed along with other sections because it is a Header and Footer, as well as a button to navigate the various functions of the website.
+### Orders : Displays related to purchases include the app's built-in purchase and sales history page.
+### Products : Product view, whether viewing product details or displaying it on the main product page, as well as editing products, are all included in Products view.
+### V_Space : The welcome page of the V_Space page is the website's first door.
 
 ## Third party services
-Inside my app, I don't use third-party services, as I initially tried to find a space to stuff it in, but it made my apps look cluttered. So I think it's not necessary for my application. But the one I opted for was Heroku to use it for deploy of my application to run in a web browser.
+
+### Cloudinary : It is used for uploading images and hosting the display of images to the website application. The product images uploaded by the user will be uploaded directly to Cloudinary and displayed on the website by through the operation of Active Storage.
+### Heroku : Third-party web host installations by the application by V_Space's web application link are https://v-space2021.herokuapp.com. This is an application upload through Heroku as a free web host.
+### Github : It is used for backing up V_Space applications to prevent data loss and also helps to distinguish between revisions each time because every github status update is saved and also share the current data in the episode. It has been replaced which makes it easy to go back and fix some wrong information.
+### Bootstrap : V_Space uses the framework of Bootstrap to make applications, whether buttons or headers on a website are taken from Bootstrap, which defines the look and feel of the website of V_Space.
+### Devise : It is the main gem of the website. It makes the use of the V_Space website more complete because when there is a user system, it makes it easier to share information or distinguish the user's product information by extracting information and authentication. Use on the website and product owners.
 
 ## ERD
 ### Database schema design

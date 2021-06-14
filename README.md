@@ -91,14 +91,14 @@ Initially, V-Space had a plan to use a rolify gem, but due to user needs, there 
 
 ### Guest :
 
-    - As a guest, I'd like to see what's on sale on the website.
+    - As a guest, I had to see what was for sale on the website.
     - As a guest, I would like to see what product details are available.
     - As a guest, I want to buy or sell items, I need to register on the Sign-up button.
     - As a guest I can search for products in the search bar.
 
 ### User :
 
-    - As a user I can search for products in the search bar.
+    - As a user, I can search for products in the search bar.
     - As a user, I want to sign in to use the website as a user.
     - As a user, I want to log out after finishing the website.
     - As a user, I want to edit the name, email, password at Edit Profile.
@@ -114,45 +114,65 @@ Initially, V-Space had a plan to use a rolify gem, but due to user needs, there 
 
 ## Model
 
-### Order : The model order is an interface that allows users to order products that come from the product and is also part of the extraction of data to be recorded in the purchase and sale history.
+### Order : 
+The model order is an interface that allows users to order products that come from the product and is also part of the extraction of data to be recorded in the purchase and sale history.
 
-### Product : The model product is like the centre of the application when the product is created by the user and the image data is received from the website. active_storage When the user uploaded an image.
+### Product : 
+The model product is like the centre of the application when the product is created by the user and the image data is received from the website. active_storage When the user uploaded an image.
 
-### User : The user model, which is the user's side, which is related to the user creating a product or editing or delete a product and send values to confirm that the product belongs to which user and who bought it from. The sale of this product is based on a separate ID for each user.
+### User : 
+The user model, which is the user's side, which is related to the user creating a product or editing or delete a product and send values to confirm that the product belongs to which user and who bought it from. The sale of this product is based on a separate ID for each user.
 
 ## Controllers
 
-### Application_controller : It controls the core of the application displayed on every page of the application. It is linked to the device gem. When a visitor wants to signup or a user has already logged in to display on the application on every page of the application.
+### Application_controller : 
+It controls the core of the application displayed on every page of the application. It is linked to the device gem. When a visitor wants to signup or a user has already logged in to display on the application on every page of the application.
 
-### Errors_controller : 404 Not Found or Error 404 is a page that notifies you that no information was found on the server of this website or that the URL of this website page was not found. Another way is to prevent the application from dripping when a URL crash occurs.
+### Errors_controller : 
+404 Not Found or Error 404 is a page that notifies you that no information was found on the server of this website or that the URL of this website page was not found. Another way is to prevent the application from dripping when a URL crash occurs.
 
-### Orders_controller : The application controls when an order is placed by the user and determines the display when the purchase and sale are recorded in the history such as who was sold to whom and from whom, what date and how much. This controller works between the products_controller.
+### Orders_controller : 
+The application controls when an order is placed by the user and determines the display when the purchase and sale are recorded in the history such as who was sold to whom and from whom, what date and how much. This controller works between the products_controller.
 
-### Products_controller : Control display of products to different categories of applications, this controller is the key of this application because all the information that must go through this controller is busy. Create a list of products, search for products, edit or delete products. It also shows the product that was created by who and when.
+### Products_controller : 
+Control display of products to different categories of applications, this controller is the key of this application because all the information that must go through this controller is busy. Create a list of products, search for products, edit or delete products. It also shows the product that was created by who and when.
 
-### V_space_controller : The application's home page controls, which act as a gateway when users enter a website.
+### V_space_controller : 
+The application's home page controls, which act as a gateway when users enter a website.
 
 ## Views
 
-### Devise : Membership display page which is part of Devise gem for visitors to come in to register as users of the website
-### Error : The page is displayed when there is a URL error or some abnormality in the use of the website.
-### Kaminari : A Kaminari gem that helps websites to paginate when there are more than a certain number of products rendered.
-### Layouts : The layout of the main website, which will be displayed along with other sections because it is a Header and Footer, as well as a button to navigate the various functions of the website.
-### Orders : Displays related to purchases include the app's built-in purchase and sales history page.
-### Products : Product view, whether viewing product details or displaying it on the main product page, as well as editing products, are all included in Products view.
-### V_Space : The welcome page of the V_Space page is the website's first door.
+### Devise : 
+Membership display page which is part of Devise gem for visitors to come in to register as users of the website
+### Error : 
+The page is displayed when there is a URL error or some abnormality in the use of the website.
+### Kaminari : 
+A Kaminari gem that helps websites to paginate when there are more than a certain number of products rendered.
+### Layouts : 
+The layout of the main website, which will be displayed along with other sections because it is a Header and Footer, as well as a button to navigate the various functions of the website.
+### Orders : 
+Displays related to purchases include the app's built-in purchase and sales history page.
+### Products : 
+Product view, whether viewing product details or displaying it on the main product page, as well as editing products, are all included in Products view.
+### V_Space : 
+The welcome page of the V_Space page is the website's first door.
 
 ## Third party services
 
-### Cloudinary : It is used for uploading images and hosting the display of images to the website application. The product images uploaded by the user will be uploaded directly to Cloudinary and displayed on the website by through the operation of Active Storage.
-### Heroku : Third-party web host installations by the application by V_Space's web application link are https://v-space2021.herokuapp.com. This is an application upload through Heroku as a free web host.
-### Github : It is used for backing up V_Space applications to prevent data loss and also helps to distinguish between revisions each time because every github status update is saved and also share the current data in the episode. It has been replaced which makes it easy to go back and fix some wrong information.
-### Bootstrap : V_Space uses the framework of Bootstrap to make applications, whether buttons or headers on a website are taken from Bootstrap, which defines the look and feel of the website of V_Space.
-### Devise : It is the main gem of the website. It makes the use of the V_Space website more complete because when there is a user system, it makes it easier to share information or distinguish the user's product information by extracting information and authentication. Use on the website and product owners.
+### Cloudinary : 
+It is used for uploading images and hosting the display of images to the website application. The product images uploaded by the user will be uploaded directly to Cloudinary and displayed on the website by through the operation of Active Storage.
+### Heroku : 
+Third-party web host installations by the application by V_Space's web application link are https://v-space2021.herokuapp.com. This is an application upload through Heroku as a free web host.
+### Github :
+It is used for backing up V_Space applications to prevent data loss and also helps to distinguish between revisions each time because every github status update is saved and also share the current data in the episode. It has been replaced which makes it easy to go back and fix some wrong information.
+### Bootstrap : 
+V_Space uses the framework of Bootstrap to make applications, whether buttons or headers on a website are taken from Bootstrap, which defines the look and feel of the website of V_Space.
+### Devise : 
+It is the main gem of the website. It makes the use of the V_Space website more complete because when there is a user system, it makes it easier to share information or distinguish the user's product information by extracting information and authentication. Use on the website and product owners.
 
 ## ERD
 ### Database schema design
-![ERD](https://res.cloudinary.com/ddqegwuzs/image/upload/v1622111944/LogoVspace/erdfix2_p8cyzv.png)
+![ERD](https://res.cloudinary.com/ddqegwuzs/image/upload/v1623673649/LogoVspace/erdfix2_xs3xtp.png)
 
 ## Describe Projects Models
 ### Product
@@ -174,7 +194,12 @@ As for the user, they are all has_many, with one user able to manage multiple pr
 - belongs_to :buyer, class_name: "User"
 - belongs_to :seller, class_name: "User"
 
-Is setting to Order Our model has Who uses id / foreign_key? It will be recorded and returned to the same place using belongsTo, always keeping the other ids id.
+It's set to Order our model has Who uses id / foreign_key. It will be recorded and returned to the same place using belongsTo, always keeping the other ids.
+
+### Active_Storage
+- has_one_attached :image
+
+When an image file is attached, Active_Storage will send data in cloudinary to display alongside product list.
 
 ## Discuss the database relations
 

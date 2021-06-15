@@ -203,12 +203,26 @@ When an image file is attached, Active_Storage will send data in cloudinary to d
 
 ## Discuss the database relations
 
-The database matters in the relationship between tables, in which the app is divided into three main tables, namely Products, Users and Order, if based on the basis, the information will be sent, i.e. foreign key and primary keys to save in the database and display when all processes are correct. In this application's database, the controller is Users, which determines the values ​​that are sent between Products and Orders.
+Firstly, when a visitor has signed up, it will be created as a user ID of the website, which is the first confirmation of access, such as creating a product and editing information, which is in the Devise function that allows the user to edit the name. , email, password or delete your account when you don't need it.
+
+When a user creates a product, it creates a relationship with the product model. When a product is created, a relationship from has_many product is added and the product information is created, showing its user in that product. That product will have only one user, occupying only one user.
+
+While creating a product, it has to upload the product image via Active_Storage. This model has no direct relationship with the product class, but has_one_attached to display the image and will be displayed corresponding to that product.
+
+Once the product has been made, the next is to place an order. It is now working between the three models together. When an order is placed by the user, data will be sent, such as the foreign key and the primary key, to be saved. Database and show when all processes are correct in the database of this application The controller is the user. This defines the values that are sent between the product and the purchase order.
 
 ## Tracked in the project
 
 Trello : 
 [V-Space - Trello](https://trello.com/b/l7hGwqCk/vspace)
+
+### Description : 
+
+The starting point for planning is to create a Marketplace application in CRUD format. Initially, a sitemap was drawn up to see how each link would be connected, followed by a website layout design to see how the site would look.
+
+After getting the basic idea, I set up the project file using Ruby on Rails and used a scaffold to create the product and continue with the order. Once the application is up and running it starts to combine with Bootstrap to create a framework to make the website look like it was designed. The basics will start with the layout of the web and navbar, with v_space as the home page. Buttons were introduced to make the website look more attractive.
+
+Below is the Timeline of the project.
 
 ### Timeline
 
@@ -249,3 +263,7 @@ Trello :
     - Can remote to Heroku
     - Finish Readme.
     - Go to upload !!
+
+### Re-submit timeline :
+
+The web structure has been modified to correct that if the user does not upload a product image or does not modify the product to include an image, the product cannot be sold and will not appear on the product page. Moreover, other users cannot edit other people's products, even if they enter other people's order number, it will be detected and taken to error 404 page. Users are required to enter credit card information in order to place an order.

@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
     end
   end
 
+  # Manage Product Page
   def seller
       @products = Product.where(user: current_user).order("created_at DESC")
   end
